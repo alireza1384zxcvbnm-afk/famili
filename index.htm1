@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سوالات خانوادگی</title>
+
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .box {
+            max-width: 500px;
+            margin: auto;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 25px #00ff88;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 10px;
+            background: #00cc66;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #00ff88;
+        }
+
+        #questions {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>💚 سوالات خانوادگی</h1>
+
+    <div id="start">
+        <p>اسمت رو وارد کن:</p>
+        <input id="name" type="text" placeholder="اسم شما">
+        <br>
+        <button onclick="startQuiz()">شروع</button>
+    </div>
+
+    <div id="questions">
+
+        <h2 id="welcome"></h2>
+
+        <p>۱. غذای مورد علاقه‌ات چیه؟</p>
+        <input id="q1" type="text">
+
+        <p>۲. بیشتر دوست داری کجا سفر کنی؟</p>
+        <input id="q2" type="text">
+
+        <p>۳. رنگ مورد علاقه‌ات چیه؟</p>
+        <input id="q3" type="text">
+
+        <br><br>
+
+        <button onclick="sendAnswers()">ثبت جواب‌ها</button>
+
+        <p id="result"></p>
+
+    </div>
+
+</div>
+
+<script>
+
+function startQuiz() {
+    let name = document.getElementById("name").value;
+
+    if (name === "") {
+        alert("لطفاً اسمت رو وارد کن");
+        return;
+    }
+
+    document.getElementById("start").style.display = "none";
+    document.getElementById("questions").style.display = "block";
+
+    document.getElementById("welcome").innerText =
+        "سلام " + name + " 👋";
+}
+
+function sendAnswers() {
+    document.getElementById("result").innerText =
+        "✅ جواب‌ها ثبت شد!";
+}
+
+</script>
+
+</body>
+</html>
+<hr>
+
+<h2>فرم خانوادگی ❤️</h2>
+
+<p>اسم شما چیست؟</p>
+<input type="text" id="name" placeholder="اسمت را بنویس">
+
+<p>حال شما چطوره؟</p>
+<select id="mood">
+    <option>عالی 😍</option>
+    <option>خوب 🙂</option>
+    <option>معمولی 😐</option>
+    <option>خوب نیست 😔</option>
+</select>
+
+<br><br>
+
+<button onclick="sendAnswer()">ثبت جواب</button>
+
+<p id="result"></p>
+
+<script>
+function sendAnswer() {
+    let name = document.getElementById("name").value;
+    let mood = document.getElementById("mood").value;
+
+    document.getElementById("result").innerHTML =
+        "ممنون " + name + " ❤️<br>جوابت ثبت شد: " + mood;
+}
+</script>
+</body>
+</html>
